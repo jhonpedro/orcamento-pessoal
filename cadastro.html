@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- HTML5Shiv -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <![endif]-->
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <!-- CSS custumizado -->
+    <link rel="stylesheet" href="estilo.css">
+    <title>Orçamento Pessoal</title>
+    
+    <link rel="icon" href="imagens/money-bill-wave-solid.png">
+    </head>
+    <body onload="pegarAno()">
+        <div class="navbar navbar-expand-md navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand">
+                    <img src="imagens/logo.png" alt="Logo">
+                </a>
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#hamb">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="hamb">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active">Cadastro</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="consulta.html" class="nav-link">Consulta</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="centralizar d-flex">
+            <div class="container">
+                <div class="row">
+                  <div class="col-md mb-5">
+                    <h1 class="display-4">Cadastro de nova despesa</h1>
+                  </div>
+            </div>
+            <div class="row d-flex">
+                <div class="col-md-3 mb-2">
+                    <input type="text" id="dia" placeholder="Dia" class="form-control">
+                </div>
+                <div class="col-md-3 mb-2">
+                    <select name="" id="mes" class="form-control">
+                        <option value="">Mês</option>
+                        <option value="1">Janeiro</option>
+                        <option value="2">Fevereiro</option>
+                        <option value="3">Março</option>
+                        <option value="4">Abril</option>
+                        <option value="5">Maio</option>
+                        <option value="6">Junho</option>
+                        <option value="7">Julho</option>
+                        <option value="8">Agosto</option>
+                        <option value="9">Setembro</option>
+                        <option value="10">Outubro</option>
+                        <option value="11">Novembro</option>
+                        <option value="12">Dezembro</option>
+                    </select>
+                </div>
+                <div class="col-md-3 mb-2">
+                    <select name="" id="ano" class="form-control">
+                        <option value="">Ano</option>
+                    </select>
+                </div>
+                <div class="col-md-3 mb-2">
+                    <select name="" id="tipo" class="form-control">
+                        <option value="">Tipo</option>
+                        <option value="1">Alimentação</option>
+                        <option value="2">Educação</option>
+                        <option value="3">Lazer</option>
+                        <option value="4">Saúde</option>
+                        <option value="5">Transporte</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row d-flex">
+                <div class="col-md-7 mb-2">
+                    <input class="form-control" placeholder="Descrição" id="descricao"></input>
+                </div>
+                <div class="col-md-3 mb-2">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">R$</span>
+                        </div>
+                        <input type="text" placeholder="Valor" id="valor" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-2 d-flex justify-content-end">
+                    <button type="button" class="btn btn-primary d-flex align-item-center" onclick="cadastrarDespesa()">
+                        <img src="imagens/comment-dollar-solid.png" height="22" alt="">
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="registraDespesaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 id="h1Modal"></h1>
+                        <button type="button" data-dismiss="modal" aria-label="Close" class="close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="pModal"></p>
+                    </div>
+                    <div class="modal-footer" id="footerModal">
+                        <button type="button" id="buttonModal" data-dismiss="modal"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script src="main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
